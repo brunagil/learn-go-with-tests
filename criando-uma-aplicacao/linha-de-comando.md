@@ -1,6 +1,6 @@
 # Linha de comando e estrutura de pacotes
 
-[**Você pode encontrar os exemplos deste capítulo aqui**](/command-line)
+[**Você pode encontrar os exemplos deste capítulo aqui**](/linha-de-comando)
 
 Nosso gerente de produto quer [_pivotar_](https://pt.wikipedia.org/wiki/Startup#Dicion%C3%A1rio_com_os_termos_mais_usados_pelas_startups)
  e introduzir uma segunda aplicação - uma aplicação de 
@@ -84,7 +84,7 @@ import (
     "log"
     "net/http"
     "os"
-    "github.com/larien/learn-go-with-tests/command-line/v1"
+    "github.com/larien/learn-go-with-tests/linha-de-comando/v1"
 )
 
 const dbFileName = "game.db.json"
@@ -116,7 +116,7 @@ Separando nosso código em um pacote isolado e enviando para um repositório pú
 Go pode escrever código que importe esse pacote com as funcionalidades que disponibilizarmos. A primeira vez que você
 tentar e executar ele vai reclamar que o pacote não existe mas tudo que precisa ser feito é executar `go get`.
 
-[Além disso, usuários podem ver a documentação em godoc.org](https://godoc.org/github.com/larien/learn-go-with-tests/command-line/v1).
+[Além disso, usuários podem ver a documentação em godoc.org](/linha-de-comando/v1).
 
 ### Verificações finais
 
@@ -171,7 +171,7 @@ func TestCLI(t *testing.T) {
 ## Tente rodar o teste
 
 ```text
-# github.com/larien/learn-go-with-tests/command-line/v2
+# github.com/larien/learn-go-with-tests/linha-de-comando/v2
 ./cli_test.go:25:10: undefined: CLI
 ```
 
@@ -395,7 +395,7 @@ package main
 
 import (
     "fmt"
-    "github.com/larien/learn-go-with-tests/command-line/v3"
+    "github.com/larien/learn-go-with-tests/linha-de-comando/v3"
     "log"
     "os"
 )
@@ -426,8 +426,8 @@ func main() {
 Você deve receber um erro
 
 ```text
-command-line/v3/cmd/cli/main.go:32:25: implicit assignment of unexported field 'playerStore' in poker.CLI literal
-command-line/v3/cmd/cli/main.go:32:34: implicit assignment of unexported field 'in' in poker.CLI literal
+linha-de-comando/v3/cmd/cli/main.go:32:25: implicit assignment of unexported field 'playerStore' in poker.CLI literal
+linha-de-comando/v3/cmd/cli/main.go:32:34: implicit assignment of unexported field 'in' in poker.CLI literal
 ```
 
 O que está acontecendo é que por causa da tentativa de associar os campos `playerStore` e `in` na `CLI`. Eles são campos 
@@ -651,7 +651,7 @@ Agora refatorando ambas aplicações para usar a função de criar o armazenamen
 package main
 
 import (
-    "github.com/larien/learn-go-with-tests/command-line/v3"
+    "github.com/larien/learn-go-with-tests/linha-de-comando/v3"
     "log"
     "os"
     "fmt"
@@ -679,7 +679,7 @@ func main() {
 package main
 
 import (
-    "github.com/larien/learn-go-with-tests/command-line/v3"
+    "github.com/larien/learn-go-with-tests/linha-de-comando/v3"
     "log"
     "net/http"
 )

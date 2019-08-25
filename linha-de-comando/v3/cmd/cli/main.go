@@ -5,7 +5,7 @@ import (
 	"log"
 	"os"
 
-	poker "github.com/larien/learn-go-with-tests/command-line/v3"
+	poker "github.com/larien/learn-go-with-tests/linha-de-comando/v3"
 )
 
 const dbFileName = "game.db.json"

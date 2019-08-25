@@ -1,7 +1,7 @@
 package poker_test
 
 import (
-	"github.com/larien/learn-go-with-tests/command-line/v3"
+	"github.com/larien/learn-go-with-tests/linha-de-comando/v3"
 	"io"
 	"strings"
 	"testing"
