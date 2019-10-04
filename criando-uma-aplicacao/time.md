@@ -2,6 +2,8 @@
 
 [**Você encontra todo o código desse capítulo aqui**](https://github.com/larien/learn-go-with-tests/tree/master/time)
 
+Nosso PO quer que nós façamos a expansão da funcionalidade da nossa linha de comando ajudando um grupo de pessoas a jogar Texas-HoldemPoker
+
 The product owner wants us to expand the functionality of our command line application by helping a group of people play Texas-Holdem Poker.
 
 ## Just enough information on poker
