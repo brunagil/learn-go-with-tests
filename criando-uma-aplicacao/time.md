@@ -1,6 +1,6 @@
 # Tempo
 
-[**You can find all the code for this chapter here**](https://github.com/quii/learn-go-with-tests/tree/master/time)
+[**Você encontra todo o código desse capítulo aqui**](https://github.com/larien/learn-go-with-tests/tree/master/time)
 
 The product owner wants us to expand the functionality of our command line application by helping a group of people play Texas-Holdem Poker.
 
@@ -626,8 +626,8 @@ While our new test has been fixed, a lot of others have failed because now our s
 This all feels a bit horrible right? Let's **listen to our tests**.
 
 * In order to test that we are scheduling some alerts we set up 4 different dependencies. Whenever you have a lot of dependencies for a _thing_ in your system, it implies it's doing too much. Visually we can see it in how cluttered our test is.
-* To me it feels like **we need to make a cleaner abstraction between reading user input and the business logic we want to do** 
-* A better test would be _given this user input, do we call a new type `Game` with the correct number of players_. 
+* To me it feels like **we need to make a cleaner abstraction between reading user input and the business logic we want to do**
+* A better test would be _given this user input, do we call a new type `Game` with the correct number of players_.
 * We would then extract the testing of the scheduling into the tests for our new `Game`.
 
 We can refactor toward our `Game` first and our test should continue to pass. Once we've made the structural changes we want we can think about how we can refactor the tests to reflect our new separation of concerns
@@ -1075,7 +1075,7 @@ Finish this chapter by writing a test for this scenario and making it pass.
 
 For the past 5 chapters we have slowly TDD'd a fair amount of code
 
-* We have two applications, a command line application and a web server. 
+* We have two applications, a command line application and a web server.
 * Both these applications rely on a `PlayerStore` to record winners
 * The web server can also display a league table of who is winning the most games
 * The command line app helps players play a game of poker by tracking what the current blind value is.
@@ -1086,8 +1086,8 @@ A very handy way of scheduling a function call after a specific duration. It is 
 
 Some of my favourites are
 
-* `time.After(duration)` which return you a `chan Time` when the duration has expired. So if you wish to do something _after_ a specific time, this can help. 
-* `time.NewTicker(duration)` returns a `Ticker` which is similar to the above in that it returns a channel but this one "ticks" every duration, rather than just once. This is very handy if you want to execute some code every `N duration`.  
+* `time.After(duration)` which return you a `chan Time` when the duration has expired. So if you wish to do something _after_ a specific time, this can help.
+* `time.NewTicker(duration)` returns a `Ticker` which is similar to the above in that it returns a channel but this one "ticks" every duration, rather than just once. This is very handy if you want to execute some code every `N duration`.
 
 ### More examples of good separation of concerns
 
