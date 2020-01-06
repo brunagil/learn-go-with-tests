@@ -1,25 +1,27 @@
 # Tempo
 
-[**You can find all the code for this chapter here**](https://github.com/quii/learn-go-with-tests/tree/master/time)
+<!-- [**You can find all the code for this chapter here**](https://github.com/quii/learn-go-with-tests/tree/master/time) -->
 
-The product owner wants us to expand the functionality of our command line application by helping a group of people play Texas-Holdem Poker.
+O gerente de produto deseja expandir a funcionalidade da linha de comando da nossa aplicação ajudando um grupo de pessoas a jogar Texas-Holdem Poker.
 
-## Just enough information on poker
+## Apenas informações relevantes sobre o poker
 
-You wont need to know much about poker, only that at certain time intervals all the players need to be informed of a steadily increasing "blind" value.
+Você não precisa saber muito sobre poker, apenas que em determinados intervalos de tempo todos os jogadores precisam ser informados de um valor "oculto" cada vez maior.
 
-Our application will help keep track of when the blind should go up, and how much it should be.
+Nosso aplicativo ajudará a acompanhar quando a jogada oculta devem subir e quanto deve ser esses valores.
 
-* When it starts it asks how many players are playing. This determines the amount of time there is before the "blind" bet goes up.
-  * There is a base amount of time of 5 minutes.
-  * For every player, 1 minute is added.
-  * e.g 6 players equals 11 minutes for the blind.
-* After the blind time expires the game should alert the players the new amount the blind bet is.
-* The blind starts at 100 chips, then 200, 400, 600, 1000, 2000 and continue to double until the game ends \(our previous functionality of "Ruth wins" should still finish the game\)
+* Quando inicia, ele pergunta quantos jogadores estão no jogo. Isso determina a quantidade de tempo que resta antes da aposta cega subir.
+  * Há um tempo mínimo de 5 minutos.
+  * Para cada jogador, 1 minuto é adicionado.
+  * por exemplo, 6 jogadores são iguais a 11 minutos para os ocultos.
+* Após o término do tempo oculto, o jogo deve alertar os jogadores sobre o novo valor da aposta cega.
+* A jogada cega começa com 100 fichas, depois 200, 400, 600, 1000, 2000 e continua a dobrar até o jogo terminar \ (nossa funcionalidade anterior de "Ruth vence" ainda deve terminar o jogo \)
 
-## Reminder of the code
+## Relembre o código
 
-In the previous chapter we made our start to the command line application which already accepts a command of `{name} wins`. Here is what the current `CLI` code looks like, but be sure to familiarise yourself with the other code too before starting.
+No capítulo anterior, começamos o aplicativo de linha de comando, que já aceita o comando `{nome} vitorias`. Aqui está o código `CLI` até então, mas certifique-se de se familiarizar com o outro código também antes de iniciar essa etapa.
+
+*nota: alinhar a tradução do código com o código presente no tópico anterior
 
 ```go
 type CLI struct {
@@ -51,17 +53,17 @@ func (cli *CLI) readLine() string {
 
 ### `time.AfterFunc`
 
-We want to be able to schedule our program to print the blind bet values at certain durations dependant on the number of players.
+Queremos que seja possível agendar em nosso programa a impressão dos valores das apostas às cegas em determinadas durações, dependendo do número de jogadores.
 
-To limit the scope of what we need to do, we'll forget about the number of players part for now and just assume there are 5 players so we'll test that _every 10 minutes the new value of the blind bet is printed_.
+Para limitar o escopo do que precisamos fazer, esqueceremos o número de jogadores participantes por enquanto e assumiremos por hora que existem 5 jogadores. Portanto, vamos testar que _a cada 10 minutos um novo valor da aposta oculta é impressa_.
 
-As usual the standard library has us covered with [`func AfterFunc(d Duration, f func()) *Timer`](https://golang.org/pkg/time/#AfterFunc)
+Como se costume, a biblioteca padrão nos cobre com [`func AfterFunc(d Duration, f func()) *Timer`](https://golang.org/pkg/time/#AfterFunc)
 
-> `AfterFunc` waits for the duration to elapse and then calls f in its own goroutine. It returns a `Timer` that can be used to cancel the call using its Stop method.
+> `AfterFunc` aguarda a duração para acontecer e então chama f em sua própria goroutine. Ele retorna o `Timer` que pode ser usado para cancelar a chamada usando o método Stop
 
 ### [`time.Duration`](https://golang.org/pkg/time/#Duration)
 
-> A Duration represents the elapsed time between two instants as an int64 nanosecond count.
+> A duração representa o tempo transcorrido entre duas instancias como no contador de nanossegundos int64
 
 The time library has a number of constants to let you multiply those nanoseconds so they're a bit more readable for the kind of scenarios we'll be doing
 
